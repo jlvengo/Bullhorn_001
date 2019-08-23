@@ -8,13 +8,16 @@
 </head>
 <body>
 <a href="/add">Add a Message</a><br />
-<table>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-        <th>Content</th>
-        <th>Posteddate</th>
-        <th>Sentby</th>
-        <td>Actions</td>
+        <th scope="col">Content</th>
+        <th scope="col">Posted date</th>
+        <th scope="col">Sent by</th>
+        <th scope="col">Actions</th>
     </tr>
+  </thead>
+  <tbody>
     <tr th:each="message : ${messages}">
         <td th:text="${message.content}"></td>
         <td th:text="${message.posteddate}"></td>
@@ -24,6 +27,7 @@
             <a th:href="@{/detail/{id}(id=${message.id})}">Details</a> -
             <a th:href="@{/delete/{id}(id=${message.id})}">Delete</a> -
         </td></tr>
+  </tbody>
 </table>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
